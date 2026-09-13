@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Authors</h1>
+
+    <a href="/acreate">Create Authors</a>
+    <br>
+
+    {% for author in authors %}
+        <h3>{{ author.f_name }} {{ author.l_name }}</h3>
+
+        <p>{{ author.b_date }}</p>
+
+        <a href="{% url 'author_detail' author.id %}">Detail</a>
+
+
+    {% endfor %}
+
+    <a href="/">main</a>
+</body>
+</html>

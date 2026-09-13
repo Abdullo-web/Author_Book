@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Book</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="title" value="{{ book.title }}">
+        <br>
+
+        <select name="author">
+            {% for author in authors %}
+                {% comment %} <option value="{{ author.id }}">
+                    {{ author.f_name }} {{ author.l_name }}
+                </option> {% endcomment %}
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <input type="number" name="pages" value="{{ book.pages }}">
+        <br>
+
+        <input type="number" name="price" value="{{ book.price }}">
+        <br>
+
+        <textarea name="description">{{ book.description }}</textarea>
+        <br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br>
+    <a href="/books">Books</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+{% comment %} {% if author.id == book.author.id %}selected{% endif %} {% endcomment %}
